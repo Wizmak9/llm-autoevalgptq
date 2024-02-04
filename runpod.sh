@@ -23,7 +23,7 @@ apt install -y screen vim git-lfs
 screen
 
 # Install common libraries
-pip install -q requests accelerate sentencepiece pytablewriter einops protobuf auto-gptq
+pip install -q requests accelerate sentencepiece pytablewriter einops protobuf 
 
 if [ "$DEBUG" == "True" ]; then
     echo "Launch LLM AutoEval in debug mode"
@@ -34,6 +34,7 @@ if [ "$BENCHMARK" == "nous" ]; then
     git clone -b add-agieval https://github.com/dmahan93/lm-evaluation-harness
     cd lm-evaluation-harness
     pip install -e .
+    pip install optimum auto-gptq
 
     benchmark="agieval"
     python main.py \
